@@ -29,6 +29,7 @@ public class Lec02Controller {
 
     return "lec02.html";
   }
+
 }
 
 /* 自分 */
