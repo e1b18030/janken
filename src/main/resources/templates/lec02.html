@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org" xmlns:sec="http://www.springframework.org/schema/security">
+
+<head>
+  <meta charset="utf-8">
+  <title>lec02html</title>
+</head>
+
+<body>
+  <h1>Lec02 Get!</h1>
+
+  <h2>
+    <div th:if="${name}">
+      Hi [[${name}]]
+    </div>
+  </h2>
+  <a href="/lec02janken?hand=gu">グー</a>
+  <a href="/lec02janken?hand=choki">チョキ</a>
+
+  <a href="/lec02janken?hand=pa">パー</a>
+
+  <div th:if="${myhand}">
+    あなたの手 [[${myhand}]]
+  </div>
+  <div th:if="${myhand}">
+    相手の手 グー
+  </div>
+  <div th:if="${result}">
+    結果 [[${result}]]
+  </div>
+
+
+</body>
+
+</html>
