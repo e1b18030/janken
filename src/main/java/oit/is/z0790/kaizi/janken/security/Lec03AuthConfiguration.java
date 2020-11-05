@@ -11,7 +11,7 @@ import org.springframework.security.crypto.password.PasswordEncoder;
 
 @Configuration
 @EnableWebSecurity
-public class Sample3AuthConfiguration extends WebSecurityConfigurerAdapter {
+public class Lec03AuthConfiguration extends WebSecurityConfigurerAdapter {
 
   /**
    * 誰がログインできるか(認証処理)

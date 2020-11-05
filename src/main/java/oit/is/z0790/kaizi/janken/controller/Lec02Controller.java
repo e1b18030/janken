@@ -17,11 +17,17 @@ public class Lec02Controller {
   // @param model
   // @return
 
+  /*
   @PostMapping("/lec02")
   public String lec02(@RequestParam String name, ModelMap model) {
     model.addAttribute("name", name);
     return "lec02.html";
   }
+  */
+  @GetMapping("/lec02")
+  public String lec02() {
+    return "lec02.html";
+}
 
   @GetMapping("/lec02janken")
   public String lec02Janken(@RequestParam String hand, ModelMap model) {
