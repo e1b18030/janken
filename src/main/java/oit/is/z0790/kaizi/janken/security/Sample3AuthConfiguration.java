@@ -42,7 +42,7 @@ public class Sample3AuthConfiguration extends WebSecurityConfigurerAdapter {
   protected void configure(HttpSecurity http) throws Exception {
 
     // Spring Securityのフォームを利用してログインを行う
-    //http.formLogin();
+    http.formLogin();
 
     // http://localhost:8000/sample3 で始まるURLへのアクセスはログインが必要
     // antMatchers().authenticated がantMatchersへのアクセスに認証を行うことを示す
