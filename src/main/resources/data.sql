@@ -1,2 +1,5 @@
-INSERT INTO chamber (user,number) VALUES ('ほんだ',2);
-INSERT INTO chamber (user,number) VALUES ('いがき',1);
+INSERT INTO users (name) VALUES ('CPU');
+INSERT INTO users (name) VALUES ('くずはら');
+INSERT INTO matches (user_1,user_2,user_1_hand,user_2_hand) VALUES (2,1,'Gu','Choki');
+INSERT INTO matches (user_1,user_2,user_1_hand,user_2_hand) VALUES (2,1,'Gu','Gu');
+INSERT INTO matches (user_1,user_2,user_1_hand,user_2_hand) VALUES (2,1,'Gu','Pa');
