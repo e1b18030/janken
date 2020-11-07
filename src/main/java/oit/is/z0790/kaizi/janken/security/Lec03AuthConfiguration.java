@@ -22,7 +22,7 @@ public class Lec03AuthConfiguration extends WebSecurityConfigurerAdapter {
     // $ sshrun htpasswd -nbBC 10 user1 pAssw0rd
     auth.inMemoryAuthentication().withUser("user1")
         .password("$2y$10$rJ9yqGht2W96MdIJICRQQOuUiYrt2eDokKnDuZZof2DPs83PN6QdC").roles("USER");
-    auth.inMemoryAuthentication().withUser("user2")
+    auth.inMemoryAuthentication().withUser("くずはら")
         .password("$2y$10$rJ9yqGht2W96MdIJICRQQOuUiYrt2eDokKnDuZZof2DPs83PN6QdC").roles("USER");
     auth.inMemoryAuthentication().withUser("admin")
         .password("$2y$10$rJ9yqGht2W96MdIJICRQQOuUiYrt2eDokKnDuZZof2DPs83PN6QdC").roles("ADMIN");
@@ -63,7 +63,6 @@ public class Lec03AuthConfiguration extends WebSecurityConfigurerAdapter {
 
     http.csrf().disable();
     http.headers().frameOptions().disable();
-
 
     // Spring Securityの機能を利用してログアウト．ログアウト時は http://localhost:8000/ に戻る
     http.logout().logoutSuccessUrl("/");
