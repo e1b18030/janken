@@ -2,6 +2,12 @@
 /*  package oit.is.z0790.kaizi.janken.controller; */
 package oit.is.z0790.kaizi.janken.controller;
 
+import oit.is.z0790.kaizi.janken.model.Entry;
+
+import java.security.Principal;
+
+import org.springframework.beans.factory.annotation.Autowired;
+
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.ui.ModelMap;
@@ -9,6 +15,7 @@ import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestParam;
+import org.springframework.web.bind.annotation.RequestMapping;
 
 @Controller
 public class Lec02Controller {
@@ -24,10 +31,24 @@ public class Lec02Controller {
     return "lec02.html";
   }
   */
+  /*
   @GetMapping("/lec02")
   public String lec02() {
     return "lec02.html";
-}
+  }
+    */
+  @Autowired
+  private Entry entry;
+
+  @GetMapping("/lec02")
+  public String lec02Entry(Principal prin, ModelMap model) {
+    String loginUser = prin.getName();
+    this.entry.addUser(loginUser);
+    model.addAttribute("entry", this.entry);
+
+    return "lec02.html";
+  }
+
 
   @GetMapping("/lec02janken")
   public String lec02Janken(@RequestParam String hand, ModelMap model) {
