@@ -5,6 +5,8 @@ package oit.is.z0790.kaizi.janken.controller;
 import oit.is.z0790.kaizi.janken.model.Entry;
 import oit.is.z0790.kaizi.janken.model.User;
 import oit.is.z0790.kaizi.janken.model.UserMapper;
+import oit.is.z0790.kaizi.janken.model.Match;
+import oit.is.z0790.kaizi.janken.model.MatchMapper;
 
 import java.security.Principal;
 import java.util.ArrayList;
@@ -40,6 +42,9 @@ public class Lec02Controller {
 
   @Autowired
   private UserMapper userMapper;
+  
+  @Autowired
+  MatchMapper MatchMapper;
 
   @GetMapping("/lec02")
   public String lec02Entry(Principal prin, ModelMap model) {
@@ -48,6 +53,8 @@ public class Lec02Controller {
     model.addAttribute("entry", this.entry);
     ArrayList<User> users = userMapper.selectAllUsers();
     model.addAttribute("users", users);
+    ArrayList<Match> Match1 = MatchMapper.selectAllMatches();
+    model.addAttribute("Match1", Match1);
 
     return "lec02.html";
   }
