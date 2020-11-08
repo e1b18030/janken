@@ -3,14 +3,18 @@
 package oit.is.z0790.kaizi.janken.controller;
 
 import oit.is.z0790.kaizi.janken.model.Entry;
+import oit.is.z0790.kaizi.janken.model.User;
+import oit.is.z0790.kaizi.janken.model.UserMapper;
 
 import java.security.Principal;
+import java.util.ArrayList;
 
 import org.springframework.beans.factory.annotation.Autowired;
 
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.ui.ModelMap;
+import org.springframework.transaction.annotation.Transactional;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.PostMapping;
@@ -25,41 +29,54 @@ public class Lec02Controller {
   // @return
 
   /*
-  @PostMapping("/lec02")
-  public String lec02(@RequestParam String name, ModelMap model) {
-    model.addAttribute("name", name);
-    return "lec02.html";
-  }
-  */
+   * @PostMapping("/lec02") public String lec02(@RequestParam String name,
+   * ModelMap model) { model.addAttribute("name", name); return "lec02.html"; }
+   */
   /*
-  @GetMapping("/lec02")
-  public String lec02() {
-    return "lec02.html";
-  }
-    */
+   * @GetMapping("/lec02") public String lec02() { return "lec02.html"; }
+   */
   @Autowired
   private Entry entry;
+
+  @Autowired
+  private UserMapper userMapper;
 
   @GetMapping("/lec02")
   public String lec02Entry(Principal prin, ModelMap model) {
     String loginUser = prin.getName();
     this.entry.addUser(loginUser);
     model.addAttribute("entry", this.entry);
+    ArrayList<User> users = userMapper.selectAllUsers();
+    model.addAttribute("users", users);
 
     return "lec02.html";
+  }
+
+
+@Autowired
+  UserMapper UserMapper;
+
+@GetMapping("lec02/{id}")
+public String lec02id(@PathVariable Integer id, ModelMap model) {
+  /*
+  User User2 = UserMapper.selectById(id);
+  model.addAttribute("User2", User2);
+  */
+
+  return "lec02.html";
   }
 
 
   @GetMapping("/lec02janken")
   public String lec02Janken(@RequestParam String hand, ModelMap model) {
-    model.addAttribute("myhand", hand);
+  model.addAttribute("myhand", hand);
 
-    return "lec02.html";
+  return "lec02.html";
   }
 
-}
+  }
 
-/* 自分 */
+  /* 自分 */
 /*
  * @Controller public class Lec02Controller { //@param name //@param Model
  * //@return
